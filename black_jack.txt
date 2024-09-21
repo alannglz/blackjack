@@ -1,0 +1,70 @@
+Algoritmo black_jack
+	Definir baraja Como Entero[52]
+	Definir cartas_jugador Como Entero[10]
+	Definir cartas_cpu Como Entero[10]
+	Definir puntos_jugador, puntos_cpu Como Entero
+	Definir i Como Entero
+	puntos_jugador= 0
+	puntos_cpu = 0
+	
+
+	Para i = 0 Hasta 51 Hacer
+		baraja[i] = i + 1 
+	Fin Para
+	
+	Para i = 0 Hasta 51 Hacer
+		Intercambiar(baraja[i], baraja[Aleatorio(0, 51)])
+	Fin Para
+	
+	Para i = 0 Hasta 1 Hacer
+		cartas_jugador[i] = baraja[i]
+		cartas_cpu[i] = baraja[i + 2]
+	Fin Para
+	
+	puntos_jugador = CalcularPuntos(cartas_jugador)
+	puntos_cpu = CalcularPuntos(cartas_cpu)
+	
+	Mientras puntos_jugador < 21 Hacer
+		Escribir "Tus cartas: ", cartas_jugador[0], ", ", cartas_jugador[1]
+		Escribir "los puntos del jugador son: ", puntos_jugador
+		Escribir "¿Quieres pedir otra carta? (s/n)"
+		Definir respuesta Como Caracter
+		Leer respuesta
+		Si respuesta = "s" Entonces
+			cartas_jugador[2] = baraja[2 + Contar(cartas_jugador)]
+			puntos_jugador = CalcularPuntos(cartas_jugador)
+		Fin Si
+	Fin Mientras
+	
+	Mientras puntosCrupier < 17 Hacer
+		cartas_cpu[Contar(cartas_cpu)] = baraja[4 + Contar(cartas_cpu)]
+		puntos_cpu = CalcularPuntos(cartas_cpu)
+	Fin Mientras
+	
+	Escribir "Puntos del jugador: ", puntos_jugador
+	Escribir "Puntos del cpu: ", puntos_cpu
+	Si puntos_jugador > 21 Entonces
+		Escribir "El jugador sumas de 21 el cpu  gana."
+	Sino 
+		Si puntos_cpu > 21 Entonces
+			Escribir "¡El crupier se pasa! El jugador gana."
+		Sino 
+			Si puntos_jugador > puntos_cpu 
+				Entonces
+				Escribir "jugador gana"
+			Sino
+				Si puntos_jugador < puntos_cpu 
+					Entonces
+					Escribir " El cpu gana"
+				Sino
+					Escribir "es empate"
+				Fin Si
+			Fin si
+			
+		Fin si	
+		
+	Fin si	
+	
+	Escribir "¿Quieres volver a jugar? (s/n)"
+			
+FinAlgoritmo
