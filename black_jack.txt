@@ -27,7 +27,7 @@ Algoritmo black_jack
 	Mientras puntos_jugador < 21 Hacer
 		Escribir "Tus cartas: ", cartas_jugador[0], ", ", cartas_jugador[1]
 		Escribir "los puntos del jugador son: ", puntos_jugador
-		Escribir "¿Quieres pedir otra carta? (s/n)"
+		Escribir "Â¿Quieres pedir otra carta? (s/n)"
 		Definir respuesta Como Caracter
 		Leer respuesta
 		Si respuesta = "s" Entonces
@@ -44,10 +44,10 @@ Algoritmo black_jack
 	Escribir "Puntos del jugador: ", puntos_jugador
 	Escribir "Puntos del cpu: ", puntos_cpu
 	Si puntos_jugador > 21 Entonces
-		Escribir "El jugador sumas de 21 el cpu  gana."
+		Escribir "El jugador suma mas de 21, el cpu  gana."
 	Sino 
 		Si puntos_cpu > 21 Entonces
-			Escribir "¡El crupier se pasa! El jugador gana."
+			Escribir "Â¡El crupier se pasa! El jugador gana."
 		Sino 
 			Si puntos_jugador > puntos_cpu 
 				Entonces
@@ -65,6 +65,6 @@ Algoritmo black_jack
 		
 	Fin si	
 	
-	Escribir "¿Quieres volver a jugar? (s/n)"
+	Escribir "Â¿Quieres volver a jugar? (s/n)"
 			
 FinAlgoritmo
